@@ -22,9 +22,22 @@ class Pagina1Page extends StatelessWidget {
               : const Center(child: Text("No se ha seleccionad un usuario"));
         },
       ),
-      floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.accessibility_new),
-          onPressed: () => Navigator.pushNamed(context, 'pagina2')),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+              child: const Icon(Icons.accessibility_new),
+              onPressed: () => Navigator.pushNamed(context, 'pagina2')),
+          const SizedBox(height: 10),
+          FloatingActionButton(
+              onPressed: () {
+                BlocProvider.of<UserBloc>(context, listen: false)
+                    .add((DesactivateeUser()));
+              },
+              child: const Icon(Icons.delete))
+        ],
+      ),
     );
   }
 }

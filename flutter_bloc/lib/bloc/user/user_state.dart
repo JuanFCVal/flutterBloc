@@ -17,3 +17,9 @@ class UserSetState extends UserState {
   final User newUser;
   const UserSetState(this.newUser) : super(existUser: true, user: newUser);
 }
+
+class UserRemoveState extends UserState {
+  const UserRemoveState() : super(existUser: false, user: null);
+}
+
+class UserChangeAge extends UserState {}
